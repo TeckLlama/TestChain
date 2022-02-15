@@ -2,13 +2,13 @@
 ----- Block Index -----
 1
 ----- Previous Block Hash -----
-75dfcbfd2ebb3871dd833715df4ffbaf29e0c0beae4e39ba004cb5e415782b6e
+ecc13c870cfbe55de970e21cf23bb1d517de9cfbb28d00e7cb60d40973ba395d
 ----- Block Solve Time -----
-1644903645
+1644926929
 ----- Block Data -----
 Block 1 Data
 ----- Block Nonce -----
-69605
+725779
 ----- End of Block -----
 ----- Block Hash -----
-00000ae46bf065e396ba6b01d5d3428fccc3541eed161613e0d8d8968bf7d2cd
+00000c278065582828dc8d17a07c4fe3b2decc35bb09d03b52978a1215028fed

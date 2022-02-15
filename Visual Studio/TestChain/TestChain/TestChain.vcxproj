@@ -143,11 +143,13 @@
     <ClCompile Include="Blockchain.cpp" />
     <ClCompile Include="sha256.cpp" />
     <ClCompile Include="TestChain.cpp" />
+    <ClCompile Include="Vote.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="Blockchain.h" />
     <ClInclude Include="sha256.h" />
+    <ClInclude Include="Vote.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

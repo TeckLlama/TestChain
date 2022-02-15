@@ -1,8 +1,9 @@
 // TestChain.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <iostream>
-#include "Blockchain.h"
 #include <Windows.h>
+#include "Blockchain.h"
+#include "Vote.h"
 
 
 
@@ -20,8 +21,11 @@ void mining() {
 }
 void voting() {
 	std::cout << "TEST VOTING" << std::endl;
-	char test;
-	std::cin >> test;
+	Vote testVote = Vote();
+	testVote.initializeVoteCandidates();
+	testVote.userInputVote();
+	//char test;
+	//std::cin >> test;
 }
 
 int menu() {
