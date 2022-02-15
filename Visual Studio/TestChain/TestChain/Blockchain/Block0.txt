@@ -1,0 +1,23 @@
+----- Start of Block -----
+----- Block Index -----
+0
+----- Previous Block Hash -----
+0000000000000000000000000000000000000000000000000000000000000000
+----- Block Solve Time -----
+1644903645
+----- Block Data -----
+VoterID#1,1
+VoterID#2,1
+VoterID#3,1
+VoterID#4, 1
+VoterID#5, 1
+VoterID#6, 1
+VoterID#7, 1
+VoterID#8, 1
+VoterID#9, 1
+VoterID#10, 1
+----- Block Nonce -----
+0
+----- End of Block -----
+----- Block Hash -----
+75dfcbfd2ebb3871dd833715df4ffbaf29e0c0beae4e39ba004cb5e415782b6e

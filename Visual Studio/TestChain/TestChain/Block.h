@@ -11,6 +11,8 @@
 class Block{
 
 public:
+    uint32_t _nIndex;
+    uint32_t _nNonce;
     std::string sHash;
     std::string sPrevHash;
 
@@ -18,14 +20,14 @@ public:
 
     void MineBlock(uint32_t nDifficulty);
     void saveBlock(uint32_t blockIndex);
-
+    std::string generateBlockHash() const;
 private:
-    uint32_t _nIndex;
-    uint32_t _nNonce;
+    
+   
     std::string _sData;
     time_t _tTime;
 
-    std::string _CalculateHash() const;
+    
 
 };
 #endif //TESTCHAIN_BLOCK_H

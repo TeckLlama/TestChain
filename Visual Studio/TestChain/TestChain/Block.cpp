@@ -6,51 +6,41 @@ Block::Block(uint32_t nIndexIn, const std::string& sDataIn) : _nIndex(nIndexIn),
 {
     _nNonce = 0;
     _tTime = time(nullptr);
-
-    sHash = _CalculateHash();
+    sHash = generateBlockHash();
 }
 
 void Block::MineBlock(uint32_t nDifficulty)
-{
-    //std::vector<char> cstr2(nDifficulty+1);
-    //char cstr[] = cstr2(nDifficulty + 1);
+{//  
+    
     char* cstr = new char[nDifficulty + 1];
     for (uint32_t i = 0; i < nDifficulty; ++i)
     {
         cstr[i] = '0';
     }
     cstr[nDifficulty] = '\0';
-
     std::string str(cstr);
-
     do
     {
         _nNonce++;
-        sHash = _CalculateHash();
+        sHash = generateBlockHash();
     } while (sHash.substr(0, nDifficulty) != str);
-
-    std::cout << "Block mined: " << sHash << std::endl;
-    //std::stringstream ss;
-   // ss << _nIndex << sPrevHash << _tTime << _sData << _nNonce;
-    //std::string blockContent = ss.str();
+    std::cout << "Block " << _nIndex <<" mined at " << _tTime <<  std::endl;
     saveBlock(_nIndex);
     delete[] cstr;
 }
 
-inline std::string Block::_CalculateHash() const
-{
+inline std::string Block::generateBlockHash() const
+{// Converts block contents into string and generates sha256 hash
     std::stringstream ss;
-    ss << _nIndex << sPrevHash << _tTime << _sData << _nNonce;    
-        
+    ss << _nIndex << sPrevHash << _tTime << _sData << _nNonce; 
     return sha256(ss.str());
 }
 
 void Block::saveBlock(uint32_t blockIndex)
-{ // saveBlock saves blocks after they are solved in folder /Blockchain/ 
-  // Cannot create blockchain folder but execute if folder exists
+{// saveBlock saves blocks after they are solved in folder /Blockchain/ 
+ // Function unable to create folder but executes corect if folder exists
     std::cout << "TEST: Starting saveBlock function";
     std::stringstream ss;
-    
     ss << "----- Start of Block -----"
        << "\n----- Block Index -----\n" 
        << _nIndex 
@@ -63,7 +53,7 @@ void Block::saveBlock(uint32_t blockIndex)
        << "\n----- Block Nonce -----\n"
        << _nNonce
        << "\n----- End of Block -----"
-    // Current Block Hash included for testing
+    // Current Block Hash included for testing purpuses 
        << "\n----- Block Hash -----\n"
        <<sHash;
     std::string blockContent = ss.str();

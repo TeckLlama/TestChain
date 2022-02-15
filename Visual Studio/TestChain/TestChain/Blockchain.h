@@ -11,10 +11,10 @@ public:
     Blockchain();
 
     void AddBlock(Block bNew);
-
+    void GenerateGenesis(Block bGen,  std::string votsta);
 private:
     uint32_t _nDifficulty;
-    std::vector<Block> _vChain;
+    std::vector<Block> _testChain;
     Block _GetLastBlock() const;
 };
 
