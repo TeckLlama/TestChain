@@ -4,9 +4,8 @@
 #include <cstdint>
 #include <vector>
 #include "Block.h"
-#include "Block.h"
 
-using namespace std;
+//using namespace std;
 class Blockchain{
 public:
     Blockchain();

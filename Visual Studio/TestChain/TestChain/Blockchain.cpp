@@ -1,7 +1,4 @@
-
-
 #include "Blockchain.h"
-
 
 
 Blockchain::Blockchain()

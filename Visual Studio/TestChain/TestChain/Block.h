@@ -4,8 +4,9 @@
 #include <cstdint>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <time.h>
-
+#include "sha256.h"
 
 class Block{
 
@@ -16,6 +17,7 @@ public:
     Block(uint32_t nIndexIn, const std::string& sDataIn);
 
     void MineBlock(uint32_t nDifficulty);
+    void saveBlock(uint32_t blockIndex);
 
 private:
     uint32_t _nIndex;
