@@ -10,7 +10,7 @@ class Blockchain{
 public:
     Blockchain();
 
-    void AddBlock(Block bNew);
+    void AddBlock(Block bNew, std::string votesPendingVerification);
     void GenerateGenesis(Block bGen,  std::string votsta);
 private:
     uint32_t _nDifficulty;

@@ -8,7 +8,7 @@ void Vote::cinYesOrNo(std::string yNQuestion)
 		std::cin >> yesOrNo;
 	} while (std::cin.fail() || yesOrNo != 'y' && yesOrNo != 'n' && yesOrNo != 'Y' && yesOrNo != 'N');
 	std::cin.ignore();
-	putchar(tolower(yesOrNo));
+	
 }
 void Vote::initializeVoteCandidates()
 {
@@ -34,13 +34,35 @@ void Vote::userInputVote()
 		std::cin >> userInputChar;
 	} while (std::cin.fail() || userInputChar != 'a' && userInputChar != 'b' && userInputChar != 'c' && userInputChar != 'd' && userInputChar != 'A' && userInputChar != 'B' && userInputChar != 'C' && userInputChar != 'D');
 	std::cin.ignore();
-	putchar(tolower(userInputChar));
-	
-
+	std::cout << "User input Char " << userInputChar << std::endl;
+	cinYesOrNo("Your choice can NOT be changed after this are you sure? ");
+	if (yesOrNo == 'Y' || yesOrNo == 'y')
+	{
+		unverifiedVotes += userVoterID + "," + userInputChar+ "\n";
+		std::cout << "Your input has been saved and will be added to the next block verified at this node" << std::endl;
+	}	
+	if (yesOrNo == 'N' || yesOrNo == 'n')
+	{
+		userInputVote();
+	}
 	
 }
 
 void Vote::checkVoterStatus(std::string voterID)
 {
+	//std::string allVoterStatus = "VoterID#1,1\nVoterID#2,1\nVoterID#3,1\nVoterID#4, 1\nVoterID#5, 1\nVoterID#6, 1\nVoterID#7, 1\nVoterID#8, 1\nVoterID#9, 1\nVoterID#10, 1";
+	if (voterID == "") {
+		std::cout << "ERROR: Input Voter ID Empty";
+		voterLogin();
+	}
+	// check VoterID is valid
+	// check VoterID Vote has not been used  
 
+}
+void Vote::voterLogin()
+{
+	std::cout << "Please enter your Voter ID --> ";
+	std::cin >> userVoterID;
+	checkVoterStatus(userVoterID);
+	userInputVote();
 }

@@ -5,27 +5,29 @@
 #include "Blockchain.h"
 #include "Vote.h"
 
+Vote testVote = Vote();
 
 
-void mining() {
+void mining(Vote testVote) {
 // manually mines three blocks 
 //@todo Blockchain need to continue / end automaticly 
 //@todo Data need to be populated with votes users votes
 	Blockchain bChain = Blockchain();
 
-	bChain.AddBlock(Block(1, "Block 1 Data"));
+	//bChain.AddBlock(Block(1, "Block 1 Data"));
+	bChain.AddBlock(Block(1, testVote.unverifiedVotes),testVote.unverifiedVotes);
+	testVote.unverifiedVotes = "";
+	bChain.AddBlock(Block(2, testVote.unverifiedVotes), testVote.unverifiedVotes);
 
-	bChain.AddBlock(Block(2, "Block 2 Data"));
-
-	bChain.AddBlock(Block(3, "Block 3 Data"));
+	bChain.AddBlock(Block(3, "Block 3 Data"),"Block 3 Data");
 }
 void voting() {
 	std::cout << "TEST VOTING" << std::endl;
-	Vote testVote = Vote();
+	
 	testVote.initializeVoteCandidates();
-	testVote.userInputVote();
-	//char test;
-	//std::cin >> test;
+	//testVote.userInputVote();
+	testVote.voterLogin();
+	//menu();
 }
 
 int menu() {
@@ -38,7 +40,7 @@ int menu() {
 	std::cin.ignore();
 	if (inputChar == 'm' || inputChar == 'M')
 	{
-		mining();		
+		mining(testVote);
 	}
 	else if (inputChar == 'v' || inputChar == 'V')
 	{
@@ -46,7 +48,7 @@ int menu() {
 	}
 	else if (inputChar == 'e' || inputChar == 'E')
 	{// if user chooses exit out return 0 will close program 
-
+		
 		return 0;
 	}
 	else {
@@ -58,8 +60,11 @@ int menu() {
 int main()
 {
     SetConsoleTitleA("Testchain");
-	menu();
-        
+	int a = 1;
+	do {
+		menu();
+	} while (a == 1);
+	  
 
     return 0;
 }

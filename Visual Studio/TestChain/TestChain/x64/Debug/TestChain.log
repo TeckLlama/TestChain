@@ -1,2 +1,5 @@
-﻿  Vote.cpp
+﻿  Blockchain.cpp
+  TestChain.cpp
+  Generating Code...
+C:\Users\Llama\GitHub\TestChain\Visual Studio\TestChain\TestChain\TestChain.cpp(57): warning C4715: 'menu': not all control paths return a value
   TestChain.vcxproj -> C:\Users\Llama\GitHub\TestChain\Visual Studio\TestChain\x64\Debug\TestChain.exe
