@@ -8,10 +8,10 @@
 Vote testVote = Vote();
 
 
-void mining(Vote testVote) {
-// manually mines three blocks 
-//@todo Blockchain need to continue / end automaticly 
-//@todo Data need to be populated with votes users votes
+void mining(Vote testVote) 
+{//	manually mines three blocks 
+ //	@TODO Blockchain need to continue / end automaticly 
+ // @TODO Data need to be populated with votes users votes
 	Blockchain bChain = Blockchain();
 
 	//bChain.AddBlock(Block(1, "Block 1 Data"));
@@ -21,17 +21,16 @@ void mining(Vote testVote) {
 
 	bChain.AddBlock(Block(3, "Block 3 Data"),"Block 3 Data");
 }
-void voting() {
+void voting() 
+{//	Manually starts voting
 	std::cout << "TEST VOTING" << std::endl;
-	
 	testVote.initializeVoteCandidates();
-	//testVote.userInputVote();
 	testVote.voterLogin();
-	//menu();
+	//testVote.userInputVote(); NOW CALLED at end of testVotevoterLogin();
 }
 
-int menu() {
-	// inputChar used to navigate menu only accepts M/V/E as input 
+int menu() 
+{//	inputChar used to navigate menu only accepts M/V/E as input 
 	char inputChar;
 	do {
 		std::cout << "\nTest Mining, Test Voting or Exit[M/V/E] --> ";
@@ -41,10 +40,12 @@ int menu() {
 	if (inputChar == 'm' || inputChar == 'M')
 	{
 		mining(testVote);
+		menu();
 	}
 	else if (inputChar == 'v' || inputChar == 'V')
 	{
 		voting();
+		menu();
 	}
 	else if (inputChar == 'e' || inputChar == 'E')
 	{// if user chooses exit out return 0 will close program 
@@ -60,10 +61,8 @@ int menu() {
 int main()
 {
     SetConsoleTitleA("Testchain");
-	int a = 1;
-	do {
-		menu();
-	} while (a == 1);
+	
+	menu();
 	  
 
     return 0;

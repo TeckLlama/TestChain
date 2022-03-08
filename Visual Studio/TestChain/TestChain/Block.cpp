@@ -4,13 +4,14 @@
 
 Block::Block(uint32_t nIndexIn, const std::string& sDataIn) : _nIndex(nIndexIn), _sData(sDataIn)
 {
+
     _nNonce = 0;
     _tTime = time(nullptr);
     sHash = generateBlockHash();
 }
 
 void Block::MineBlock(uint32_t nDifficulty)
-{//  
+{// Starts mining next block 
     
     char* cstr = new char[nDifficulty + 1];
     for (uint32_t i = 0; i < nDifficulty; ++i)
